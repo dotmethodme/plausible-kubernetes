@@ -1,5 +1,8 @@
 # Simple Plausible Analytics for Kubernetes
+
 A simple, self-hosted configuration for Plausible Analytics, meant for deploying to Kubernetes.
+
+![Cover](./cover.png)
 
 ## Requirements:
 - You have installed [Cert-manager](https://cert-manager.io/docs/) - optional (yet recommended). Responsible for auto-issuing ssl certificates for your host name. 
