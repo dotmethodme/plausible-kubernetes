@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plausible
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: plausible
+
+  template:
+    metadata:
+      labels:
+        app: plausible
+    spec:
+      containers:
+        - name: plausible
+          image: plausible/analytics:latest
+          command: ["/bin/sh"]
+          args:
+            [
+              "-c",
+              "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run",
+            ]
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+          livenessProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              path: /
+              port: 8000
+          readinessProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              path: /
+              port: 8000
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: plausible
