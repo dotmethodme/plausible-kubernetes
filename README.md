@@ -23,3 +23,7 @@ A simple, self-hosted configuration for Plausible Analytics, meant for deploying
 2. Open `ingress.yaml`. Insert your chosen domain name into the host fields 
 3. Open `secret.yaml`. Configure the marked fields.
 4. Apply the configuration with `kubectl apply -f ./base`
+
+## Read more:
+- [The official plausible self-hosted docs](https://plausible.io/docs/self-hosting)
+- [The official configuration options for plausible](https://plausible.io/docs/self-hosting-configuration)
