@@ -5,7 +5,7 @@ A simple, self-hosted configuration for Plausible Analytics, meant for deploying
 - You have installed [Cert-manager](https://cert-manager.io/docs/) - optional (yet recommended). Responsible for auto-issuing ssl certificates for your host name. 
 - You have an SMTP server which can be used by plausible to send emails
 
-** Note: **
+** Note:**
 - By default, these templates will install everything in the `default` namespace (although, you're free to change that)
 - Sections which need configuration have been marked as `<todo:replaceme>` for convenience
 
